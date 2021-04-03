@@ -18,18 +18,20 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Yo hello gaes {}, my name is {}! if you have any questions about how to use me please give me /help... 
+Halo {}, nama saya {}!
 
-im a group manager bot maintained by  [this person](tg://user?id={}).
+Pengguna ini adalah [Boss saya](tg://user?id={}).
 
-My future updates will be put into This Channel - @MarieChechi & My Support Group @InFoTelGroup.
+Saya adalah bot resmi grup [Kerabat Online](https://t.me/KerabatOnline).
+ditugaskan untuk keperluan dan kepentingan grup [Kerabat Online](https://t.me/KerabatOnline) dan afiliasi.
 
-This is my [Deploy Code](https://heroku.com/deploy?template=https://github.com/TGExplore/Marie-2.0-English),
-you can create clone same like me..
+Ketik /help untuk melihat daftar perintah untuk bot ini.
 
-For more commands click /help...
-
-**Keep in mind that any changes you DO do to the source have to be on github, as per the license.**
+Silahkan gabung grup/channel dan ikuti sosial media kami
+• [Kerabat Online Grup](https://t.me/KerabatOnline)
+• [Kerabat Online Channel](https://t.me/KerabatOnline_Ch)
+• [Kerabat Online Moment](https://t.me/KerabatMoment)
+• [Kerabat Online Twitter(https://twitter.com/KerabatOnline)
 
 """
 
