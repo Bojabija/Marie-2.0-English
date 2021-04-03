@@ -37,25 +37,25 @@ Silahkan gabung grup/channel dan ikuti sosial media kami
 
 HELP_STRINGS = """
 
-Hello! my name *{}*.
+Halo, saya *{}*.
 
-*Main* available commands:
- - /start: Start the bot...
- - /help: help....
- - /donate: To find out more about donating!
- - /settings:
-   - in PM: To find out what SETTINGS you have set....
-   - in a group:
+*Perintah utama* :
+ • /start: untuk memulai bot
+ • /help: melihat semua perintah yang tersedia
+ • /donate: memberikan informasi tentang donasi
+ • /settings:
+   > di PM: untuk menampilkan pengaturan anda
+   > di grup: mengarahkan ke PM untuk menampilkan pengaturan grup
 
 {}
-And the following:
-""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll of the following commands  / or ! can  be used...\n")
+Dan diikuti:
+""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nSemua perintah menggunakan / atau !\n")
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
-It took lots of work for [my creator](t.me/SonOfLars) to get me to where I am now, and every donation helps \
-motivate him to make me even better. All the donation money will go to a better VPS to host me, and/or beer \
-(see his bio!). He's just a poor student, so every little helps!
-There are two ways of paying him; [PayPal](paypal.me/PaulSonOfLars), or [Monzo](monzo.me/paulnionvestergaardlarsen)."""
+DONATE_STRING = """Hai orang baik, anda ingin berdonasi?!
+Saya sangat senang jika anda ingin berdonasi untuk saya.
+Silahkan hubungi langsung staff grup [Kerabat Online](https://t.me/KerabatOnline) untuk proses donasi.
+
+Semua donasi yang terkumpul akan digunakan untuk keperluan server bot ini dan keperluan grup [Kerabat Online](https://t.me/KerabatOnline)."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -147,7 +147,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN)
     else:
-        update.effective_message.reply_text("waked up😏😏😏")
+        update.effective_message.reply_text("Hai kerabatku😎")
 
 
 # for test purposes
@@ -237,16 +237,16 @@ def get_help(bot: Bot, update: Update):
     # ONLY send help in PM
     if chat.type != chat.PRIVATE:
 
-        update.effective_message.reply_text("Contact me in PM to get the list of possible commands.",
+        update.effective_message.reply_text("Hubungi saya di PM untuk melihat daftar perintah yang tersedia.",
                                             reply_markup=InlineKeyboardMarkup(
-                                                [[InlineKeyboardButton(text="Help",
+                                                [[InlineKeyboardButton(text="Klik disini",
                                                                        url="t.me/{}?start=help".format(
                                                                            bot.username))]]))
         return
 
     elif len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
         module = args[1].lower()
-        text = "Here is the available help for the *{}* module:\n".format(HELPABLE[module].__mod_name__) \
+        text = "Ini adalah perintah untuk modul *{}*:\n".format(HELPABLE[module].__mod_name__) \
                + HELPABLE[module].__help__
         send_help(chat.id, text, InlineKeyboardMarkup([[InlineKeyboardButton(text="Back", callback_data="help_back")]]))
 
@@ -385,9 +385,9 @@ def donate(bot: Bot, update: Update):
         try:
             bot.send_message(user.id, DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
-            update.effective_message.reply_text("I've PM'ed you about donating to my creator!")
+            update.effective_message.reply_text("Cek PM anda untuk melihat cara berdonasi.")
         except Unauthorized:
-            update.effective_message.reply_text("Contact me in PM first to get donation information.")
+            update.effective_message.reply_text("Silahkan PM saya kemudian ketik /donate untuk cara berdonasi.")
 
 
 def migrate_chats(bot: Bot, update: Update):
