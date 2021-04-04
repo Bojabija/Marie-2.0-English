@@ -23,7 +23,7 @@ Halo {}, nama saya {}!
 Pengguna ini adalah [Boss saya](tg://user?id={}).
 
 Saya adalah bot resmi grup [Kerabat Online](https://t.me/KerabatOnline).
-ditugaskan untuk keperluan dan kepentingan grup [Kerabat Online](https://t.me/KerabatOnline) dan afiliasi.
+
 
 Ketik /help untuk melihat daftar perintah untuk bot ini.
 
@@ -376,9 +376,9 @@ def donate(bot: Bot, update: Update):
     if chat.type == "private":
         update.effective_message.reply_text(DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
-        if OWNER_ID != 254318997 and DONATION_LINK:
-            update.effective_message.reply_text("You can also donate to the person currently running me "
-                                                "[here]({})".format(DONATION_LINK),
+        if OWNER_ID != 891467722 and DONATION_LINK:
+            update.effective_message.reply_text("Atau kalian bisa langsung PM ke "
+                                                "[Boss saya]({})".format(DONATION_LINK),
                                                 parse_mode=ParseMode.MARKDOWN)
 
     else:
