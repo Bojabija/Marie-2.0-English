@@ -21,6 +21,7 @@ PM_START_TEXT = """
 Halo {}, nama saya {}!
 Pengguna ini adalah [Boss saya](tg://user?id={}).
 Saya adalah bot resmi grup [Kerabat Online](https://t.me/KerabatOnline).
+
 Ketik /help untuk melihat daftar perintah untuk bot ini.
 
 """
