@@ -22,8 +22,8 @@ def afk(bot: Bot, update: Update):
         reason = ""
 
     sql.set_afk(update.effective_user.id, reason)
-    update.effective_message.reply_text("❎ <b>{}</b> <i>sekarang afk</i> ‼️".format(update.effective_user.first_name))
-                     parse_mode=ParseMode.MARKDOWN
+    update.effective_message.reply_text("📴 {} sekarang afk ‼️".format(update.effective_user.first_name))
+
 
 @run_async
 def no_longer_afk(bot: Bot, update: Update):
@@ -34,7 +34,7 @@ def no_longer_afk(bot: Bot, update: Update):
 
     res = sql.rm_afk(user.id)
     if res:
-        update.effective_message.reply_text("✅ <b>{}</b> <i>telah aktif</i> ‼️".format(update.effective_user.first_name))
+        update.effective_message.reply_text("✅ {} telah aktif ‼️".format(update.effective_user.first_name))
 
 
 @run_async
@@ -61,9 +61,9 @@ def reply_afk(bot: Bot, update: Update):
             if sql.is_afk(user_id):
                 user = sql.check_afk_status(user_id)
                 if not user.reason:
-                    res = "🗣️ <b>{}</b> <i>sedang AFK</i> ‼️".format(fst_name)
+                    res = "❎ {} sedang AFK ‼️".format(fst_name)
                 else:
-                    res = "🗣️ <b>{}</b> <i>saat ini AFK</i> ‼️\n\n📝 <b>Karena sedang</b> <i>{}</i>. ".format(fst_name, user.reason)
+                    res = "❎ {} saat ini AFK ‼️\n\n🗣️ Karena sedang {}. ".format(fst_name, user.reason)
                 message.reply_text(res)
 
 
